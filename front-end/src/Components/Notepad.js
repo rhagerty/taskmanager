@@ -33,6 +33,12 @@ function Notepad() {
         <li>
           <input type="text" value={formData} onChange={handleChange} />
         </li>
+        <li>
+          <input type="text" value={formData} onChange={handleChange} />
+        </li>
+        <li>
+          <input type="text" value={formData} onChange={handleChange} />
+        </li>
       </List>
     </Wrapper>
   );
@@ -40,12 +46,13 @@ function Notepad() {
 
 const Wrapper = styled.div`
   color: #555;
+  margin: 20px auto;
   font-size: 12px;
   padding: 0 !important;
   font-family: courier, monospace;
   border: 1px solid #dedede;
   background: white;
-  width: 100%;
+  width: 80%;
 `;
 
 const List = styled.div`

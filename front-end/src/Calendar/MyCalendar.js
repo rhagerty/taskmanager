@@ -69,8 +69,8 @@ const Wrapper = styled.div`
   }
 
   .react-calendar__tile {
-    max-width: 14vw;
-    height: 10vw;
+    max-width: 10vw;
+    height: 8vw;
     background-color: white;
   }
   .react-calendar__navigation {
@@ -88,7 +88,7 @@ const Wrapper = styled.div`
   }
   .react-calendar__navigation__label__labelText  {
     color: #575aa6;
-    font-size: 1.2rem;
+    font-size: 1rem;
     text-transform: uppercase;
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;

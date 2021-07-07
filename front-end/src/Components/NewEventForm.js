@@ -5,7 +5,6 @@ import { format } from "date-fns";
 import { FiCalendar } from "react-icons/fi";
 import { BsArrowRight } from "react-icons/bs";
 import { GrLocation } from "react-icons/gr";
-import { RiNotification2Line } from "react-icons/ri";
 import { GrClose } from "react-icons/gr";
 import { FcCheckmark } from "react-icons/fc";
 import { useHistory } from "react-router-dom";
@@ -128,7 +127,7 @@ const NewEventForm = ({ closeDialog, refreshEvents }) => {
   };
 
   return (
-    <div>
+    <Wrapper>
       <form>
         <Top>
           <Title
@@ -194,7 +193,7 @@ const NewEventForm = ({ closeDialog, refreshEvents }) => {
         </Section>
         <Section>
           <Label>Location</Label>
-          <div>
+          <div className="location">
             <GrLocation />
             <SectionInput2
               type="text"
@@ -202,11 +201,6 @@ const NewEventForm = ({ closeDialog, refreshEvents }) => {
               onChange={(ev) => handleLocation(ev.target.value)}
             />
           </div>
-        </Section>
-        <Section>
-          <Label>Notifications</Label>
-          <RiNotification2Line />{" "}
-          <SectionInput2 type="text" placeholder="Add notification" />
         </Section>
       </form>
       <ActionsSection>
@@ -218,11 +212,11 @@ const NewEventForm = ({ closeDialog, refreshEvents }) => {
           disabled={buttonDisabled}
         >
           {status === "idle" ? (
-            "Create event"
+            "ADD EVENT"
           ) : status === "loading" ? (
             <SmallLoadingIcon />
           ) : (
-            "Create event"
+            "ADD EVENT"
           )}
         </ButtonCreate>
       </ActionsSection>
@@ -231,9 +225,18 @@ const NewEventForm = ({ closeDialog, refreshEvents }) => {
           <FcCheckmark /> Your event was added to your calendar!
         </ConfirmationBox>
       ) : null}
-    </div>
+    </Wrapper>
   );
 };
+
+const Wrapper = styled.div`
+  margin: 20px auto;
+  width: 50vw;
+  height: 100vw;
+  min-width: 500px;
+  background-color: #eeeff6; 
+  font-family: "Montserrat", sans-serif;
+`;
 
 const Top = styled.div`
   display: flex;
@@ -241,21 +244,20 @@ const Top = styled.div`
   align-items: center;
   flex-direction: column;
   background-color: #f6f7f6;
-  padding-top: 50px;
+  padding-top: 40px;
   padding-bottom: 30px;
 `;
 const ActionsSection = styled.div`
   text-align: center;
-  padding-top: 30px;
+  padding-top: 50px;
   padding-bottom: 15px;
-  width: 100vw;
 `;
 const ButtonCreate = styled.button`
   border: none;
   background-color: ${COLORS.button2};
   color: ${COLORS.text1};
-  font-size: 1.5rem;
-  font-weight: 400;
+  font-size: 1rem;
+  font-weight: bold;
   margin: 0 10px;
   width: 160px;
   height: 40px;
@@ -270,7 +272,7 @@ const ButtonClose = styled.button`
   border: none;
   background-color: ${COLORS.button1};
   color: ${COLORS.text2};
-  font-size: 1.3rem;
+  font-size: 1rem;
   line-height: 1rem;
   font-weight: 300;
   width: 40px;
@@ -282,7 +284,7 @@ const ButtonClose = styled.button`
 
 const Title = styled.input`
   margin: 10px 0;
-  width: 75vw;
+  width: 50%;
   border: none;
   border-bottom: 2px solid black;
   padding-bottom: 5px;
@@ -299,7 +301,7 @@ const Title = styled.input`
 `;
 const Description = styled.input`
   margin: 10px 0;
-  width: 75vw;
+  width: 50%;
   border: none;
   border-bottom: 1px solid #b3b3b3;
   padding-bottom: 5px;
@@ -314,21 +316,25 @@ const Description = styled.input`
   }
 `;
 const Section = styled.div`
-  width: 100vw;
   box-sizing: border-box;
   border-top: 1px solid #b3b3b3;
-  padding: 15px 20px;
+  padding: 20px;
   .dateNTimeInputSection {
     display: flex;
     justify-content: space-between;
+    padding: 0 10px;
+    margin-bottom: 10px;
     align-items: center;
+  }
+  .location{
+    padding: 0 10px;
   }
 `;
 
 const Label = styled.label`
   padding-bottom: 10px;
   display: block;
-  font-size: 1.2rem;
+  font-size: 1rem;
 `;
 
 const InputBorder = styled.div`
@@ -353,10 +359,10 @@ const SectionInput = styled.input`
 `;
 
 const SectionInput2 = styled.input`
-  padding: 5px 0;
+  padding: 5px 10px;
   font-size: 1rem;
   width: 300px;
-  padding-left: 5px;
+  margin-left: 5px;
   &:focus {
     outline: none;
   }
@@ -367,8 +373,6 @@ const SectionInput2 = styled.input`
 
 const CalendarForm = styled.div`
   padding: 0 6vw;
-  padding-bottom: 70px;
-  height: 100vh;
   box-sizing: border-box;
   position: absolute;
   top: 0;
@@ -377,7 +381,6 @@ const CalendarForm = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   visibility: hidden;
   .ButtonBox {
     margin: 10px 0;

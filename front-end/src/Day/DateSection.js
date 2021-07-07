@@ -48,7 +48,7 @@ const DateDivSection = styled.div`
   background-color: white;
 `;
 const Arrow = styled.button`
-color: #575aa6;
+  color: #476a6f;
   font-size: 2rem;
   padding: 0 30px;
   background-color: white;
@@ -59,8 +59,8 @@ color: #575aa6;
   }
 `;
 const DateNumber = styled.div`
-color: #575aa6;
-  font-size: 1rem;
+  color: #519e8a;
+  font-size: 1.5rem;
   font-weight: 300;
   padding: 0 20px;
   box-sizing: border-box;
@@ -69,7 +69,7 @@ color: #575aa6;
 `;
 
 const DateNumberMain = styled.div`
-  color: #575aa6;
+  color: #519e8a;
   font-size: 2rem;
   font-weight: 300;
   padding: 0 20px;

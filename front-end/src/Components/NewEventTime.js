@@ -117,16 +117,17 @@ const NewEventTime = ({ form, setForm }) => {
 const Label = styled.label`
   padding-bottom: 10px;
   display: block;
-  font-size: 1.2rem;
+  font-size: 1rem;
 `;
 const TimeSection = styled.div`
+  font-family: "Montserrat", sans-serif;
   display: flex;
   justify-content: space-between;
   .TimeLabel {
     display: inline-block;
   }
   .AllDaySection {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
   .checkBoxBox {
     margin: 0 5px;
@@ -135,6 +136,7 @@ const TimeSection = styled.div`
 const TimeRange = styled.div`
   display: flex;
   align-items: center;
+  padding: 0 10px;
 `;
 const Arrow = styled.div`
   padding: 0 10px;
@@ -146,6 +148,6 @@ const Select = styled.select`
   margin: 0 2px;
   font-size: 1.1rem;
   border: none;
-  background-color: #f2f2f2;
+  background-color: white;
 `;
 export default NewEventTime;

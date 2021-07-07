@@ -5,7 +5,6 @@ import MyCalendar from "./MyCalendar";
 import NewEventDialog from "../Components/NewEventDialog";
 import { useHistory } from "react-router-dom";
 import { format } from "date-fns";
-import noEventToday from "./img.png";
 
 const CalendarView = () => {
   const history = useHistory();
@@ -71,45 +70,59 @@ const CalendarView = () => {
           Day
         </TabItem>
       </Tabs>
-      <MyCalendar updateCurrentMonth={updateCurrentMonth} />
-
-      {status === "loading" ? null : (
-        <>
-          {MonthEvents.length === 0 ? (
-            <NoEventsSection>
-              <p>You have nothing planned!</p>
-              <p>Tap " + " to add a task.</p>
-              <AddEventImg src={noEventToday} alt="Add fun activities" />
-            </NoEventsSection>
-          ) : null}
-          <EventsSection>
-            {MonthEvents.map((ev) => (
-              <EventBox
-                onClick={() =>
-                  history.push(`/date/${format(new Date(ev.date), "y-MM-dd")}`)
-                }
-              >
-                <DateBox style={{ backgroundColor: dateColors[++colorIndex] }}>
-                  <div className="dayName">
-                    {format(new Date(ev.date), "EEE.")}
-                  </div>
-                  <div className="dayNum">{format(new Date(ev.date), "d")}</div>
-                </DateBox>
-                <DayEventsBox>
-                  {ev.events.map((meeting) => (
-                    <div>
-                      <EventTitle style={{ color: dateColors[colorIndex] }}>
-                        {"‣ "}
-                        {meeting.title}
-                      </EventTitle>
-                    </div>
+      <div className="container">
+        <div className="row">
+          <div className="col-lg-10 col-sm-12">
+            <MyCalendar updateCurrentMonth={updateCurrentMonth} />
+          </div>
+          <div className="col-lg-2 col-sm-12">
+            {status === "loading" ? null : (
+              <>
+                {MonthEvents.length === 0 ? (
+                  <NoEventsSection>
+                    <p>You have nothing planned!</p>
+                    <p>Tap " + " to add a task.</p>
+                  </NoEventsSection>
+                ) : null}
+                <EventsSection>
+                  {MonthEvents.map((ev) => (
+                    <EventBox
+                      onClick={() =>
+                        history.push(
+                          `/date/${format(new Date(ev.date), "y-MM-dd")}`
+                        )
+                      }
+                    >
+                      <DateBox
+                        style={{ backgroundColor: dateColors[++colorIndex] }}
+                      >
+                        <div className="dayName">
+                          {format(new Date(ev.date), "EEE.")}
+                        </div>
+                        <div className="dayNum">
+                          {format(new Date(ev.date), "d")}
+                        </div>
+                      </DateBox>
+                      <DayEventsBox>
+                        {ev.events.map((meeting) => (
+                          <div>
+                            <EventTitle
+                              style={{ color: dateColors[colorIndex] }}
+                            >
+                              {"‣ "}
+                              {meeting.title}
+                            </EventTitle>
+                          </div>
+                        ))}
+                      </DayEventsBox>
+                    </EventBox>
                   ))}
-                </DayEventsBox>
-              </EventBox>
-            ))}
-          </EventsSection>
-        </>
-      )}
+                </EventsSection>
+              </>
+            )}
+          </div>
+        </div>
+      </div>
     </Wrapper>
   );
 };
@@ -118,6 +131,10 @@ const Wrapper = styled.div`
   margin: 20px auto;
   width: 80%;
   background-color: #eeeff6;
+  .container{
+    padding: 0;
+    margin: 0 auto;
+  }
 `;
 const Tabs = styled.div`
   display: flex;
@@ -139,15 +156,11 @@ const TabItem = styled.div`
   font-family: "Montserrat", sans-serif;
 `;
 const NoEventsSection = styled.div`
-  margin-top: 20px;
   text-align: center;
-  font-size: 1.2rem;
+  font-size: 1rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
-`;
-const AddEventImg = styled.img`
-  max-width: 90vw;
+
 `;
 
 const EventsSection = styled.div``;
