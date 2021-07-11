@@ -11,6 +11,7 @@ import Register from "./Components/Register";
 import Navbar from "./Navigation/Navbar";
 
 function App() {
+
   return (
     <Router>
       <Navbar />
@@ -18,13 +19,13 @@ function App() {
         <Route exact path="/">
           <Homepage />
         </Route>
-        <Route exact path="/login">
+        <Route exact path="/loginUser">
           <Login />
         </Route>
-        <Route exact path="/register">
+        <Route path="/register">
           <Register />
         </Route>
-        <Route exact path="/logout">
+        <Route path="/logout">
           <Logout />
         </Route>
         <Route exact path="/calendar-month">

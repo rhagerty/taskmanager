@@ -1,6 +1,8 @@
 const { MongoClient } = require("mongodb");
 const assert = require("assert");
 require("dotenv").config();
+const passport = require("passport"),
+  LocalStrategy = require("passport-local").Strategy;
 const MONGO_URI =
   "mongodb+srv://testuser:password%21@cluster0.xsjrw.mongodb.net/TaskManager?retryWrites=true&w=majority";
 const { v4: uuidv4 } = require("uuid");
@@ -12,49 +14,37 @@ const options = {
 
 let user_events = [];
 
-// /****************************************
-//  * Testing the connection
-//  ***************************************/
-// const testingDatabase = async () => {
-//   const client = await MongoClient(MONGO_URI, options);
-//   await client.connect();
-//   console.log("connected!");
-//   const db = client.db("TaskManager");
-//   const collection = db.collection("Events");
-//   client.close();
-//   console.log("disconnected!");
-// };
+passport.use(
+  new LocalStrategy(function (username, password, done) {
+    User.findOne({ username: username }, function (err, user) {
+      if (err) {
+        return done(err);
+      }
+      if (!user) {
+        return done(null, false, { message: "Incorrect username." });
+      }
+      if (!user.validPassword(password)) {
+        return done(null, false, { message: "Incorrect password." });
+      }
+      return done(null, user);
+    });
+  })
+);
 
-// /****************************************
-//  * Batch import
-//  ***************************************/
-// const batchImport = async () => {
-//   const client = await MongoClient(MONGO_URI, options);
-//   try {
-//     await client.connect();
-//     console.log("connected!");
-//     const db = client.db("TaskManager");
-//     const result = await db.collection("Events").insertMany(user_events);
-//     console.log("SUCCESS", result);
-//   } catch (err) {
-//     console.log("ERROR", err.message);
-//   }
-//   client.close();
-// };
 
 /****************************************
  * Login user
  ***************************************/
-const getUser = async ({ user }) => {
+const getUser = async (username, password) => {
   const client = await MongoClient(MONGO_URI, options);
   try {
     await client.connect();
     const db = client.db("TaskManager");
-    const query = { username: `${user.username}` };
+    const query = { username: username };
 
-    const res = await db.collection("Users").find(query).toArray;
+    const res = await db.collection("Users").find(query).toArray();
     console.log(res);
-    localStorage.setItem("user", user.username);
+    localStorage.setItem("user", username);
     return true;
   } catch (err) {
     console.log("ERROR", err.message);
@@ -65,7 +55,7 @@ const getUser = async ({ user }) => {
 /****************************************
  * Register user
  ***************************************/
-const registerUser = async ({ user }) => {
+const registerUser = async (username, password) => {
   let currentUser;
   const client = await MongoClient(MONGO_URI, options);
   try {
@@ -87,10 +77,10 @@ const registerUser = async ({ user }) => {
 /****************************************
  * Get all events
  ***************************************/
-const getAllEvents = async () => {
+const getAllEvents = async (user) => {
   console.log("Start of server: fetching all user events from Database.");
   const client = await MongoClient(MONGO_URI, options);
-  const user = localStorage.getItem("user");
+
   const query = { user: user };
   try {
     await client.connect();
@@ -116,9 +106,9 @@ const getAllEvents = async () => {
  * Add new event
  ***************************************/
 const addEvent = async (req, res) => {
-  let user = localStorage.getItem("username")
+  let user = localStorage.getItem("username");
   let eventObject = { ...req.body.form, _id: uuidv4(), user: user };
-console.log(user)
+  console.log(user);
   const client = await MongoClient(MONGO_URI, options);
 
   try {

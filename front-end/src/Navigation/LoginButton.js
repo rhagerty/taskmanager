@@ -5,7 +5,7 @@ import { useHistory } from "react-router-dom";
 const LoginButton = () => {
   const history = useHistory();
   const handleClick = () => {
-    history.push("/login")
+    history.push("/loginUser")
   }
   return (
     <Wrapper>

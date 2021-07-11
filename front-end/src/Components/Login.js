@@ -1,38 +1,25 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { useHistory } from "react-router-dom";
+import { useHistory } from "react-router";
+import axios from 'axios';
 
 const Login = () => {
-  const [user, setUser] = useState({
-    username: "",
-    password: "",
-  });
-
+  const [form, setForm] = useState({ username: "", password: "" });
+  const { username, password } = form;
+  const onChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
   const history = useHistory();
-
-  function handleChange(evt) {
-    const { name, value } = evt.target;
-    setUser((fData) => ({
-      ...fData,
-      [name]: value,
-    }));
-  }
-
   function handleSubmit(e) {
     e.preventDefault();
 
-    fetch("/login", {
-      method: "POST",
-      body: JSON.stringify({ user }),
+    axios.post("/login", {
+      body: JSON.stringify({ form }),
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
     })
       .then((res) => res.json())
-      .then((res) => {
-        history.push("/getEvents");
-      })
+      .then(history.push("/"))
       .catch((error) => {
         console.log("error!", error);
       });
@@ -43,17 +30,17 @@ const Login = () => {
       <form onSubmit={handleSubmit} className="loginForm">
         <Username
           type="text"
-          name="username"
           placeholder="USERNAME"
-          onChange={handleChange}
-          value={user.username}
+          onChange={(e) => onChange(e)}
+          value={username}
+          name="username"
         />
         <Password
-          type="text"
-          name="password"
+          type="password"
           placeholder="PASSWORD"
-          onChange={handleChange}
-          value={user.password}
+          onChange={(e) => onChange(e)}
+          value={password}
+          name="password"
         />
         <button type="submit" className="loginBtn">
           Login
