@@ -1,11 +1,10 @@
 "use strict";
 
 const express = require("express");
-// const bodyParser = require("body-parser");
 const morgan = require("morgan");
-const passport = require("passport");
 const {
   registerUser,
+  getUser,
   addEvent,
   getAllEvents,
   getMonthEvents,
@@ -35,15 +34,9 @@ app
   .use(morgan("dev"))
   .use(express.json())
 
-  .post(
-    "/login",
-    passport.authenticate("local", {
-      successRedirect: "/",
-      failureRedirect: "/login",
-      failureFlash: true,
-    })
-  )
-  .post("/register", registerUser)
+
+  .get("/login", getUser)
+  .get("/register", registerUser)
   .get("/getEvents", getAllEvents)
   .get("/events/month/:month", getMonthEvents)
   .post("/newEvent", addEvent)
@@ -64,5 +57,3 @@ app
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);
 });
-
-getAllEvents();
