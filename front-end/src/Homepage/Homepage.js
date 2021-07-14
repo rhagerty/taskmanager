@@ -13,18 +13,18 @@ const Homepage = () => {
         <TabItem onClick={() => history.push("/")}>dashboard</TabItem>
         <TabItem
           onClick={() => history.push("/calendar-month")}
-          style={{ backgroundColor: "#787ab8" }}
+          style={{ backgroundColor: "#84BDAF" }}
         >
           month
         </TabItem>
         <TabItem
           onClick={() => history.push(`/week/${format(new Date(), "y-MM-dd")}`)}
-          style={{ backgroundColor: "#787ab8" }}
+          style={{ backgroundColor: "#84BDAF" }}
         >
           week
         </TabItem>
         <TabItem
-          style={{ backgroundColor: "#787ab8" }}
+          style={{ backgroundColor: "#84BDAF" }}
           onClick={() => history.push(`/date/${format(new Date(), "y-MM-dd")}`)}
         >
           Day
@@ -39,7 +39,8 @@ const Wrapper = styled.div`
   padding: 0;
   width: 80vw;
   margin: 20px auto;
-  background-color: #eeeff6;
+  height: max-content;
+  background-color: #DFECE8;
 `;
 
 const Tabs = styled.div`
@@ -51,8 +52,8 @@ const Tabs = styled.div`
 const TabItem = styled.div`
   flex-grow: 1;
   text-align: center;
-  background-color: #575aa6;
-  border: 1px solid #575aa6;
+  background-color: #40776A;
+  border: 1px solid #40776A;
   color: white;
   text-transform: uppercase;
   border-top-left-radius: 10px;

@@ -72,7 +72,7 @@ const SingleEvent = ({ dayEvents, refreshEvents }) => {
 const SingleEventBox = styled.div`
   display: flex;
   flex-direction: row;
-  border-bottom: 2px solid #dae2f1;
+  border-bottom: 2px solid #DFECE8;
   font-weight: 300;
   padding: 15px 0;
   .nameNdesc {

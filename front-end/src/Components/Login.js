@@ -21,21 +21,24 @@ const Login = () => {
 
   function handleSubmit(e) {
     e.preventDefault();
+    localStorage
+    .setItem("username", user.username)
+    history.push("/")
 
-    axios.post("/login", {
-      body: JSON.stringify({ user }),
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-    })
-      .then((res) => res.json())
-      .then((res) => {
-        history.push("/");
-      })
-      .catch((error) => {
-        console.log("error!", error);
-      });
+    // axios.post("/login", {
+    //   body: JSON.stringify({ user }),
+    //   headers: {
+    //     Accept: "application/json",
+    //     "Content-Type": "application/json",
+    //   },
+    // })
+      // .then((res) => res.json())
+      // .then((res) => {
+      //   history.push("/");
+      // })
+      // .catch((error) => {
+      //   console.log("error!", error);
+      // });
   }
 
   return (
@@ -68,7 +71,7 @@ export default Login;
 const Username = styled.input`
   border: none;
   width: 75%;
-  border-bottom: 2px solid #575aa6;
+  border-bottom: 2px solid #40776A;
   padding-bottom: 5px;
   margin-bottom: 10px;
   font-size: 1rem;
@@ -110,8 +113,8 @@ const Wrapper = styled.div`
     display: block;
     margin: 10px auto;
     background-color: white;
-    color: #575aa6;
-    border: 2px solid #575aa6;
+    color: #40776A;
+    border: 2px solid #40776A;
     font-family: "Montserrat", sans-serif;
     text-transform: uppercase;
     font-size: 0.8rem;

@@ -47,7 +47,6 @@ const Wrapper = styled.div`
   margin: 20px;
   .MuiTextField-root {
     margin: 5px 10px;
-    width: 40%;
     background-color: white;
   }
   #outlined-multiline-static {

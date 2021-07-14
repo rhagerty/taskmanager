@@ -3,19 +3,18 @@
 const express = require("express");
 const morgan = require("morgan");
 const {
-  registerUser,
-  getUser,
+  testingDatabase,
+  batchImport,
   addEvent,
   getAllEvents,
   getMonthEvents,
   getDayEvents,
   removeEvent,
   editEvent,
-  getWeekEvents,
+  getWeekEvents
 } = require("./handlers");
 
 const app = express();
-
 const PORT = 3001;
 
 app
@@ -30,14 +29,13 @@ app
     );
     next();
   })
-
   .use(morgan("dev"))
   .use(express.json())
 
-
-  .get("/login", getUser)
-  .get("/register", registerUser)
-  .get("/getEvents", getAllEvents)
+  .get("/testDB", testingDatabase)
+  .get("/import", batchImport)
+  .use(express.urlencoded({ extended: true }))
+  //.get("/allEvents", getEvents)
   .get("/events/month/:month", getMonthEvents)
   .post("/newEvent", addEvent)
   .get("/events/date/:date", getDayEvents)
@@ -50,10 +48,12 @@ app
   .get("*", (req, res) =>
     res.status(404).json({
       status: 404,
-      message: "There is a problem with your request!",
+      message: "There is a problem with your request!"
     })
   );
 
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);
 });
+
+getAllEvents();

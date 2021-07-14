@@ -48,7 +48,7 @@ const NewEventIcon = styled.button`
   border-radius: 50px;
   border: none;
   color: white;
-  background-color: #787ab8;
+  background-color: #59A692;
   position: fixed;
   bottom: 10px;
   right: 10px;

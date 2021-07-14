@@ -1,5 +1,5 @@
 const express = require("express");
-const router = express.Router();
+const router = new express.Router();
 const { MongoClient } = require("mongodb");
 const assert = require("assert");
 require("dotenv").config();
@@ -21,12 +21,6 @@ router
   .put("/editEvent", editEvent)
   .post("/events/week", getWeekEvents)
 
-  .get("*", (req, res) =>
-    res.status(404).json({
-      status: 404,
-      message: "There is a problem with your request!",
-    })
-  );
 
 /****************************************
  * Get all events

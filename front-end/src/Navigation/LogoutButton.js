@@ -22,7 +22,7 @@ const Wrapper = styled.div`
   .logoutBtn {
     font-family: "Montserrat", sans-serif;
     background-color: white;
-    border: 2px solid #575aa6;
-    color: #575aa6;
+    border: 2px solid #40776A;
+    color: #40776A;
   }
 `;

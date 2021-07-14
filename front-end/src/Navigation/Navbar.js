@@ -60,27 +60,27 @@ const TopBanner = styled.div`
   border-radius: 5px;
   margin: 20px auto;
   padding: 20px 30px;
-  border: 3px solid #787ab8;
+  border: 3px solid #40776A;
   text-align: center;
 `;
 
 const Welcome = styled.div`
   font-size: 4rem;
   font-family: "League Script", cursive;
-  color: #787ab8;
+  color: #84BDAF;
   opacity: 0.8;
 `;
 const MainDate = styled.div`
   font-size: 0.8rem;
   text-align: center;
-  color: #787ab8;
+  color: #84BDAF;
   font-family: "Roboto", sans-serif;
   font-weight: 300;
 `;
 
 const Wrapper = styled.div`
   font-size: 0.8rem;
-  color: #787ab8;
+  color: #84BDAF;
   text-decoration: none;
   font-weight: bold;
   display: inline;

@@ -29,47 +29,47 @@ const Dashboard = () => {
       <>
         <Quote />
         <Divider />
-        <Events>
-          <SectionTitle>Today</SectionTitle>
-          {dayEvents.length === 0 ? (
-            <NothingPlanned>
-              Nothing planned for today. Lucky you!
-            </NothingPlanned>
-          ) : (
-            dayEvents.map((ev) => {
-              console.log(ev);
-              if (ev.start.time.allday === true) {
-                return (
-                  <EventLine>
-                    <EventHour>All Day!</EventHour>
-                    <EventTitle>{ev.title}</EventTitle>
-                  </EventLine>
-                );
-              } else {
-                return (
-                  <EventLine>
-                    <EventHour>
-                      {parseInt(ev.start.time.hours)}:{ev.start.time.minutes}{" "}
-                      {ev.start.time.ap.toLowerCase()}
-                    </EventHour>
-                    <EventTitle>{ev.title}</EventTitle>
-                  </EventLine>
-                );
-              }
-            })
-          )}
-        </Events>
-        <NewEventDialog />
-        <div className="row justify-content-md-center">
-          <div className="col-12">
+        <div className="row">
+          <div className="col-lg-3 col-md-2">
+            <Events>
+              <SectionTitle>Today</SectionTitle>
+              {dayEvents.length === 0 ? (
+                <NothingPlanned>
+                  Nothing planned for today. Lucky you!
+                </NothingPlanned>
+              ) : (
+                dayEvents.map((ev) => {
+                  console.log(ev);
+                  if (ev.start.time.allday === true) {
+                    return (
+                      <EventLine>
+                        <EventHour>All Day!</EventHour>
+                        <EventTitle>{ev.title}</EventTitle>
+                      </EventLine>
+                    );
+                  } else {
+                    return (
+                      <EventLine>
+                        <EventHour>
+                          {parseInt(ev.start.time.hours)}:
+                          {ev.start.time.minutes}{" "}
+                          {ev.start.time.ap.toLowerCase()}
+                        </EventHour>
+                        <EventTitle>{ev.title}</EventTitle>
+                      </EventLine>
+                    );
+                  }
+                })
+              )}
+            </Events>
+            <NewEventDialog />
+
             <SectionTitle>Priorities</SectionTitle>
             <Priorities />
-            <div className="row">
-              <div className="col">
-                <SectionTitle>Brain Dump</SectionTitle>
-                <Notepad />
-              </div>
-            </div>
+          </div>
+          <div className="col-lg-9 col-md-10">
+            <SectionTitle>Brain Dump</SectionTitle>
+            <Notepad />
           </div>
         </div>
       </>
@@ -102,8 +102,8 @@ const Wrapper = styled.div`
   padding: 0;
   min-height: 100vw;
   margin: 0 auto;
-  background-color: #eeeff6;
-  color: #787ab8;
+  background-color: #dfece8;
+  color: #40776a;
   text-align: center;
 
   .loginTxt {
@@ -116,7 +116,7 @@ const SectionTitle = styled.div`
   font-weight: 600;
   font-family: "Montserrat", sans-serif;
   font-size: 1rem;
-  color: #787ab8;
+  color: #40776a;
 `;
 
 const NothingPlanned = styled.div`
@@ -139,7 +139,7 @@ const EventLine = styled.div`
 `;
 
 const EventHour = styled.div`
-  color: #575aa6;
+  color: #84bdaf;
   margin-right: 10px;
   font-weight: 500;
   font-size: 1.5rem;
@@ -147,7 +147,7 @@ const EventHour = styled.div`
 `;
 const EventTitle = styled.div`
   font-size: 1.2rem;
-  color: #3c3e72;
+  color: #59a692;
   line-height: 100%;
   font-family: "Patrick Hand", cursive;
 `;

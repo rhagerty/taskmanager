@@ -45,12 +45,12 @@ function Notepad() {
 }
 
 const Wrapper = styled.div`
-  color: #555;
+  color: #40776A;
   margin: 20px auto;
   font-size: 12px;
   padding: 0 !important;
   font-family: courier, monospace;
-  border: 1px solid #dedede;
+  border: 1px solid #DFECE8;
   background: white;
   width: 80%;
 `;

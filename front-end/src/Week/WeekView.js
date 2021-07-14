@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { COLORS } from "../Constants";
 import { useHistory } from "react-router-dom";
 import { format } from "date-fns";
-import { AiOutlineHome } from "react-icons/ai";
-import { BiArrowBack } from "react-icons/bi";
 import NewEventDialog from "../Components/NewEventDialog";
 
 const WeekView = () => {
@@ -111,19 +108,19 @@ const WeekView = () => {
       <Tabs>
       <TabItem
           onClick={() => history.push("/")}
-          style={{ backgroundColor: "#787ab8" }}
+          style={{ backgroundColor: "#84BDAF" }}
         >
           dashboard
         </TabItem>
         <TabItem
           onClick={() => history.push("/calendar-month")}
-          style={{ backgroundColor: "#787ab8" }}
+          style={{ backgroundColor: "#84BDAF" }}
         >
           month
         </TabItem>
         <TabItem onClick={() => history.push("/week/a")}>week</TabItem>
         <TabItem
-          style={{ backgroundColor: "#787ab8" }}
+          style={{ backgroundColor: "#84BDAF" }}
           onClick={() => history.push(`/date/${format(new Date(), "y-MM-dd")}`)}
         >
           Day
@@ -257,7 +254,7 @@ const Wrapper = styled.div`
   height: 100vh;
   margin: 20px auto;
   width: 80%;
-  background-color: #eeeff6; 
+  background-color: #DFECE8; 
 `;
 const Tabs = styled.div`
   display: flex;
@@ -269,8 +266,8 @@ const Tabs = styled.div`
 const TabItem = styled.div`
   flex-grow: 1;
   text-align: center;
-  background-color: #575aa6;
-  border: 1px solid #575aa6;
+  background-color: #40776A;
+  border: 1px solid #40776A;
   color: white;
   text-transform: uppercase;
   font-family: 'Montserrat', sans-serif;
@@ -287,7 +284,7 @@ const WeekBar = styled.div`
   padding-bottom: 8px;
   .month {
     padding-top: 8px;
-    color: #575aa6;
+    color: #40776A;
     font-size: 1.2rem;
     text-transform: uppercase;
     font-family: 'Montserrat', sans-serif;
@@ -306,7 +303,7 @@ const WeekButton = styled.button`
   border: none;
   font-size: 1.5rem;
   line-height: 1rem;
-  color: #575aa6;
+  color: #40776A;
   background-color: white;
   &:active {
     outline: none;

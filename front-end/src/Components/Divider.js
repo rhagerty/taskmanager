@@ -5,7 +5,7 @@ const Divider = () => <HR />;
 export default Divider;
 
 const HR = styled.div`
-  border-top: 1px solid #8c8b8b;
+  border-top: 1px solid #9BBFB6;
   margin: 25px 0 5px 0;
   text-align: center;
   :after {
@@ -15,7 +15,7 @@ const HR = styled.div`
     top: -14px;
     padding: 0 10px;
     background: #f0f0f0;
-    color: #8c8b8b;
+    color: #9BBFB6;
     font-size: 18px;
     -webkit-transform: rotate(60deg);
     -moz-transform: rotate(60deg);

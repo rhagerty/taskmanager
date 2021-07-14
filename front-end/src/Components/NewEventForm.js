@@ -234,7 +234,7 @@ const Wrapper = styled.div`
   width: 50vw;
   height: 100vw;
   min-width: 500px;
-  background-color: #eeeff6; 
+  background-color: #DFECE8; 
   font-family: "Montserrat", sans-serif;
 `;
 
@@ -243,7 +243,7 @@ const Top = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: #f6f7f6;
+  background-color: #DFECE8;
   padding-top: 40px;
   padding-bottom: 30px;
 `;
@@ -303,7 +303,7 @@ const Description = styled.input`
   margin: 10px 0;
   width: 50%;
   border: none;
-  border-bottom: 1px solid #b3b3b3;
+  border-bottom: 1px solid #DFECE8;
   padding-bottom: 5px;
   font-size: 1rem;
   background-color: transparent;
@@ -317,7 +317,7 @@ const Description = styled.input`
 `;
 const Section = styled.div`
   box-sizing: border-box;
-  border-top: 1px solid #b3b3b3;
+  border-top: 1px solid #DFECE8;
   padding: 20px;
   .dateNTimeInputSection {
     display: flex;
@@ -338,7 +338,7 @@ const Label = styled.label`
 `;
 
 const InputBorder = styled.div`
-  border: 1px solid #b3b3b3;
+  border: 1px solid #DFECE8;
   border-radius: 3px;
   display: inline-block;
   padding: 0 5px;
@@ -396,9 +396,9 @@ const CalendarOkButton = styled.button`
 `;
 const ConfirmationBox = styled.div`
   margin: 20px;
-  border: 1px solid #00cc63;
+  border: 1px solid #98C8BC;
   border-radius: 4px;
-  background-color: #e6fff2;
+  background-color: #DFECE8;
   padding: 5px 20px;
 `;
 export default NewEventForm;

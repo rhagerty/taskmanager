@@ -52,19 +52,19 @@ const CalendarView = () => {
       <Tabs>
         <TabItem
           onClick={() => history.push("/")}
-          style={{ backgroundColor: "#787ab8" }}
+          style={{ backgroundColor: "#84bdaf" }}
         >
           dashboard
         </TabItem>
         <TabItem onClick={() => history.push("/calendar-month")}>month</TabItem>
         <TabItem
           onClick={() => history.push(`/week/${format(new Date(), "y-MM-dd")}`)}
-          style={{ backgroundColor: "#787ab8" }}
+          style={{ backgroundColor: "#84bdaf" }}
         >
           week
         </TabItem>
         <TabItem
-          style={{ backgroundColor: "#787ab8" }}
+          style={{ backgroundColor: "#84bdaf" }}
           onClick={() => history.push(`/date/${format(new Date(), "y-MM-dd")}`)}
         >
           Day
@@ -130,7 +130,7 @@ const Wrapper = styled.div`
   min-height: 100vh;
   margin: 20px auto;
   width: 80%;
-  background-color: #eeeff6;
+  background-color: #DFECE8;
   .container{
     padding: 0;
     margin: 0 auto;
@@ -144,8 +144,8 @@ const Tabs = styled.div`
 const TabItem = styled.div`
   flex-grow: 1;
   text-align: center;
-  background-color: #575aa6;
-  border: 1px solid #575aa6;
+  background-color: #40776A;
+  border: 1px solid #40776A;
   color: white;
   text-transform: uppercase;
   border-top-left-radius: 10px;

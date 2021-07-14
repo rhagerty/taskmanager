@@ -4,7 +4,6 @@ require("dotenv").config();
 const MONGO_URI =
   "mongodb+srv://testuser:password%21@cluster0.xsjrw.mongodb.net/TaskManager?retryWrites=true&w=majority";
 const { v4: uuidv4 } = require("uuid");
-// const bodyParser = require("body-parser");
 const options = {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -12,72 +11,30 @@ const options = {
 
 let user_events = [];
 
-// /****************************************
-//  * Testing the connection
-//  ***************************************/
-// const testingDatabase = async () => {
-//   const client = await MongoClient(MONGO_URI, options);
-//   await client.connect();
-//   console.log("connected!");
-//   const db = client.db("TaskManager");
-//   const collection = db.collection("Events");
-//   client.close();
-//   console.log("disconnected!");
-// };
-
-// /****************************************
-//  * Batch import
-//  ***************************************/
-// const batchImport = async () => {
-//   const client = await MongoClient(MONGO_URI, options);
-//   try {
-//     await client.connect();
-//     console.log("connected!");
-//     const db = client.db("TaskManager");
-//     const result = await db.collection("Events").insertMany(user_events);
-//     console.log("SUCCESS", result);
-//   } catch (err) {
-//     console.log("ERROR", err.message);
-//   }
-//   client.close();
-// };
-
 /****************************************
- * Login user
+ * Testing the connection
  ***************************************/
-const getUser = async ({ user }) => {
+const testingDatabase = async () => {
   const client = await MongoClient(MONGO_URI, options);
-  try {
-    await client.connect();
-    const db = client.db("TaskManager");
-    const query = { username: `${user.username}` };
-
-    const res = await db.collection("Users").find(query).toArray;
-    console.log(res);
-    localStorage.setItem("user", user.username);
-    return true;
-  } catch (err) {
-    console.log("ERROR", err.message);
-  }
+  await client.connect();
+  console.log("connected!");
+  const db = client.db("TaskManager");
+  const collection = db.collection("Events");
   client.close();
+  console.log("disconnected!");
 };
 
 /****************************************
- * Register user
+ * Batch import
  ***************************************/
-const registerUser = async ({ user }) => {
-  let currentUser;
+const batchImport = async () => {
   const client = await MongoClient(MONGO_URI, options);
   try {
     await client.connect();
+    console.log("connected!");
     const db = client.db("TaskManager");
-    const users = db.collection("Users");
-    const doc = { username: username, password: password };
-
-    const result = await users.insertOne(doc);
-    currentUser = user.username;
-    console.log(result);
-    return currentUser;
+    const result = await db.collection("Events").insertMany(user_events);
+    console.log("SUCCESS", result);
   } catch (err) {
     console.log("ERROR", err.message);
   }
@@ -90,14 +47,13 @@ const registerUser = async ({ user }) => {
 const getAllEvents = async () => {
   console.log("Start of server: fetching all user events from Database.");
   const client = await MongoClient(MONGO_URI, options);
-  const user = localStorage.getItem("user");
-  const query = { user: user };
+
   try {
     await client.connect();
     console.log("Connected to DB TaskManager.");
     const db = client.db("TaskManager");
 
-    const dbEvents = await db.collection("Events").find(query).toArray();
+    const dbEvents = await db.collection("Events").find().toArray();
 
     if (dbEvents) {
       user_events = dbEvents;
@@ -116,9 +72,8 @@ const getAllEvents = async () => {
  * Add new event
  ***************************************/
 const addEvent = async (req, res) => {
-  let user = localStorage.getItem("username")
-  let eventObject = { ...req.body.form, _id: uuidv4(), user: user };
-console.log(user)
+  let eventObject = { ...req.body.form, _id: uuidv4() };
+
   const client = await MongoClient(MONGO_URI, options);
 
   try {
@@ -387,8 +342,8 @@ const getWeekEvents = (req, res) => {
 };
 
 module.exports = {
-  registerUser,
-  getUser,
+  testingDatabase,
+  batchImport,
   addEvent,
   getAllEvents,
   getMonthEvents,

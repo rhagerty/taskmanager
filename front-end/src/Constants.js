@@ -1,5 +1,5 @@
 export const COLORS = {
-  background: "#ECF0F8",
+  background: "#DFECE8",
   button1: "rgb(164,168,242)",
   button2: "rgb(71, 106, 111)",
   overlay1: "#FFFFFF",
