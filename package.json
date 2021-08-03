@@ -2,6 +2,10 @@
   "name": "taskmanager",
   "version": "1.0.0",
   "description": "# Introduction",
+  "scripts": {
+    "start": "npm start",
+    "client": "npm start --prefix client"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/rhagerty/taskmanager.git"

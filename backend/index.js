@@ -35,7 +35,6 @@ app
   .get("/testDB", testingDatabase)
   .get("/import", batchImport)
   .use(express.urlencoded({ extended: true }))
-  //.get("/allEvents", getEvents)
   .get("/events/month/:month", getMonthEvents)
   .post("/newEvent", addEvent)
   .get("/events/date/:date", getDayEvents)
