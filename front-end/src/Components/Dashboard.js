@@ -102,7 +102,7 @@ const Wrapper = styled.div`
   padding: 0;
   min-height: 100vw;
   margin: 0 auto;
-  background-color: #dfece8;
+  background-color: #E9F2EF;
   color: #40776a;
   text-align: center;
 

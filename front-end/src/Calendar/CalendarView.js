@@ -52,19 +52,19 @@ const CalendarView = () => {
       <Tabs>
         <TabItem
           onClick={() => history.push("/")}
-          style={{ backgroundColor: "#84bdaf" }}
+          style={{ backgroundColor: "#fff", color: "#40776a"}}
         >
           dashboard
         </TabItem>
         <TabItem onClick={() => history.push("/calendar-month")}>month</TabItem>
         <TabItem
           onClick={() => history.push(`/week/${format(new Date(), "y-MM-dd")}`)}
-          style={{ backgroundColor: "#84bdaf" }}
+          style={{ backgroundColor: "#fff", color: "#40776a"}}
         >
           week
         </TabItem>
         <TabItem
-          style={{ backgroundColor: "#84bdaf" }}
+          style={{ backgroundColor: "#fff", color: "#40776a"}}
           onClick={() => history.push(`/date/${format(new Date(), "y-MM-dd")}`)}
         >
           Day
@@ -149,10 +149,10 @@ const TabItem = styled.div`
   text-transform: uppercase;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-  border-bottom: none;
   padding: 6px 0;
   font-size: 1rem;
   font-family: "Montserrat", sans-serif;
+  cursor: pointer;
 `;
 const NoEventsSection = styled.div`
   text-align: center;

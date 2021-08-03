@@ -42,7 +42,7 @@ const Content = styled.div`
   flex-direction: row;
   background-color: white;
   border-radius: 10px;
-  background-color: #DFECE8;
+  background-color: #E9F2EF;
   text-align: center;
 `;
 

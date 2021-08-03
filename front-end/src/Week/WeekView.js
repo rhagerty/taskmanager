@@ -106,21 +106,21 @@ const WeekView = () => {
     <Wrapper>
       <NewEventDialog refreshEvents={refreshAfterNewEvent} />
       <Tabs>
-      <TabItem
+        <TabItem
           onClick={() => history.push("/")}
-          style={{ backgroundColor: "#84BDAF" }}
+          style={{ backgroundColor: "#fff", color: "#40776a" }}
         >
           dashboard
         </TabItem>
         <TabItem
           onClick={() => history.push("/calendar-month")}
-          style={{ backgroundColor: "#84BDAF" }}
+          style={{ backgroundColor: "#fff", color: "#40776a" }}
         >
           month
         </TabItem>
         <TabItem onClick={() => history.push("/week/a")}>week</TabItem>
         <TabItem
-          style={{ backgroundColor: "#84BDAF" }}
+          style={{ backgroundColor: "#fff", color: "#40776a" }}
           onClick={() => history.push(`/date/${format(new Date(), "y-MM-dd")}`)}
         >
           Day
@@ -254,28 +254,29 @@ const Wrapper = styled.div`
   height: 100vh;
   margin: 20px auto;
   width: 80%;
-  background-color: #DFECE8; 
+  background-color: #dfece8;
 `;
 const Tabs = styled.div`
   display: flex;
   flex-direction: row;
   margin-top: 2px;
-  margin-right: 3px;
 `;
 
 const TabItem = styled.div`
   flex-grow: 1;
   text-align: center;
-  background-color: #40776A;
-  border: 1px solid #40776A;
+  background-color: #40776a;
+  border: 1px solid #40776a;
   color: white;
   text-transform: uppercase;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   border-bottom: none;
   padding: 6px 0;
   font-size: 1rem;
+  width: 100%;
+  cursor: pointer;
 `;
 
 const WeekBar = styled.div`
@@ -283,12 +284,13 @@ const WeekBar = styled.div`
   background-color: white;
   padding-bottom: 8px;
   .month {
-    padding-top: 8px;
-    color: #40776A;
+    padding: 8px;
+    color: #40776a;
     font-size: 1.2rem;
     text-transform: uppercase;
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-weight: bold;
+    background-color: #dfece8;
   }
   .numbers {
     display: flex;
@@ -296,6 +298,7 @@ const WeekBar = styled.div`
     justify-content: space-between;
     padding: 15px 0px;
     font-size: 1rem;
+    font-family: "Montserrat", sans-serif;
   }
 `;
 const WeekButton = styled.button`
@@ -303,7 +306,7 @@ const WeekButton = styled.button`
   border: none;
   font-size: 1.5rem;
   line-height: 1rem;
-  color: #40776A;
+  color: #40776a;
   background-color: white;
   &:active {
     outline: none;

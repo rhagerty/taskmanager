@@ -67,20 +67,20 @@ const TopBanner = styled.div`
 const Welcome = styled.div`
   font-size: 4rem;
   font-family: "League Script", cursive;
-  color: #84BDAF;
+  color: #458173;
   opacity: 0.8;
 `;
 const MainDate = styled.div`
   font-size: 0.8rem;
   text-align: center;
-  color: #84BDAF;
+  color: #458173;
   font-family: "Roboto", sans-serif;
   font-weight: 300;
 `;
 
 const Wrapper = styled.div`
   font-size: 0.8rem;
-  color: #84BDAF;
+  color: #458173;
   text-decoration: none;
   font-weight: bold;
   display: inline;

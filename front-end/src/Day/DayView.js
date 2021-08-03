@@ -46,18 +46,18 @@ const DayView = () => {
       <Tabs>
         <TabItem
           onClick={() => history.push("/")}
-          style={{ backgroundColor: "#84BDAF" }}
+          style={{ backgroundColor: "#fff", color: "#40776a" }}
         >
           dashboard
         </TabItem>
         <TabItem
           onClick={() => history.push("/calendar-month")}
-          style={{ backgroundColor: "#84BDAF" }}
+          style={{ backgroundColor: "#fff", color: "#40776a" }}
         >
           month
         </TabItem>
         <TabItem
-          style={{ backgroundColor: "#84BDAF" }}
+          style={{ backgroundColor: "#fff", color: "#40776a" }}
           onClick={() => history.push(`/week/${params.date}`)}
         >
           week
@@ -107,9 +107,11 @@ const TabItem = styled.div`
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   border-bottom: none;
+  width: 100%;
   padding: 6px 0;
   font-size: 1rem;
   font-family: "Montserrat", sans-serif;
+  cursor: pointer;
 `;
 
 const ContentSection = styled.div`

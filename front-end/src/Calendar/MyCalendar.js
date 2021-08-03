@@ -47,10 +47,10 @@ const Wrapper = styled.div`
     background: white;
     line-height: 2em;
     text-align: center;
-    border: 1px solid #59A692;
+    border: 1px solid #458172;
   }
   .react-calendar button {
-    border: 1px dashed #59A692;
+    border: 1px dashed #458172;
     font-size: 1rem;
   }
 
@@ -59,7 +59,7 @@ const Wrapper = styled.div`
     text-align: center;
     font-weight: 400;
     font-size: 1em;
-    background-color: #59A692;
+    background-color: #458172;
   }
   .react-calendar__month-view__weekdays__weekday abbr {
     text-decoration: none;
@@ -84,10 +84,10 @@ const Wrapper = styled.div`
     padding: 0;
     margin: 0 10px;
     border: none;
-    color: #84bdaf;
+    color: #458172;
   }
   .react-calendar__navigation__label__labelText  {
-    color: #84bdaf;
+    color: #458172;
     font-size: 1rem;
     text-transform: uppercase;
     font-family: 'Montserrat', sans-serif;

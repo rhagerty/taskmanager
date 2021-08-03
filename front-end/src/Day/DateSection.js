@@ -46,6 +46,7 @@ const DateDivSection = styled.div`
   flex-direction: row;
   justify-content: center;
   background-color: white;
+  padding: 10px;
 `;
 const Arrow = styled.button`
   color: #476a6f;

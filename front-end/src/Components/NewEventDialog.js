@@ -42,13 +42,13 @@ const NewEventIcon = styled.button`
   font-size: 2.5rem;
   font-weight: 200;
   line-height: 1rem;
-  padding-bottom: 6px;
+  padding-bottom: 10px;
   width: 50px;
   height: 50px;
   border-radius: 50px;
   border: none;
   color: white;
-  background-color: #59A692;
+  background-color: #458172;
   position: fixed;
   bottom: 10px;
   right: 10px;
