@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router";
 import styled from "styled-components";
-import { COLORS } from "../Constants";
 import NoEventToday from "./NoEventToday";
 import NewEventDialog from "../Components/NewEventDialog";
 

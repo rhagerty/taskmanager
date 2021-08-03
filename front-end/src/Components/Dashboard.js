@@ -30,7 +30,7 @@ const Dashboard = () => {
         <Quote />
         <Divider />
         <div className="row">
-          <div className="col-lg-3 col-md-2">
+          <div className="col-lg-3 col-md-12">
             <Events>
               <SectionTitle>Today</SectionTitle>
               {dayEvents.length === 0 ? (
@@ -67,7 +67,7 @@ const Dashboard = () => {
             <SectionTitle>Priorities</SectionTitle>
             <Priorities />
           </div>
-          <div className="col-lg-9 col-md-10">
+          <div className="col-lg-9 col-md-12">
             <SectionTitle>Brain Dump</SectionTitle>
             <Notepad />
           </div>

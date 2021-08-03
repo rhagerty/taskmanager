@@ -80,7 +80,6 @@ const CalendarView = () => {
               <>
                 {MonthEvents.length === 0 ? (
                   <NoEventsSection>
-                    <p>You have nothing planned!</p>
                     <p>Tap " + " to add a task.</p>
                   </NoEventsSection>
                 ) : null}
@@ -130,8 +129,8 @@ const Wrapper = styled.div`
   min-height: 100vh;
   margin: 20px auto;
   width: 80%;
-  background-color: #DFECE8;
-  .container{
+  background-color: #dfece8;
+  .container {
     padding: 0;
     margin: 0 auto;
   }
@@ -144,8 +143,8 @@ const Tabs = styled.div`
 const TabItem = styled.div`
   flex-grow: 1;
   text-align: center;
-  background-color: #40776A;
-  border: 1px solid #40776A;
+  background-color: #40776a;
+  border: 1px solid #40776a;
   color: white;
   text-transform: uppercase;
   border-top-left-radius: 10px;
@@ -160,7 +159,8 @@ const NoEventsSection = styled.div`
   font-size: 1rem;
   display: flex;
   flex-direction: column;
-
+  padding-top: 20px;
+  font-family: "Montserrat", sans-serif;
 `;
 
 const EventsSection = styled.div``;

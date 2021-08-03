@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import picture from "./img.png";
 
 const NoEventToday = () => {
   return (
@@ -8,9 +7,8 @@ const NoEventToday = () => {
       <div className="container">
         <div className="row justify-content-md-center">
           <div className="col">
-          <p>You have nothing planned for the day!</p>
+          <p>You have nothing planned for the day.</p>
           <p className="TapMsg">Tap " + " to add a task.</p>
-          <Img src={picture} />
           </div>
         </div>
       </div>
@@ -24,8 +22,9 @@ const Wrapper = styled.div`
   font-size: 1rem;
   .TapMsg {
     padding-top: 15px;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
   }
+  font-family: "Montserrat", sans-serif;
 `;
 const Img = styled.img`
   max-width: 400px;

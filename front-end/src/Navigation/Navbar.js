@@ -40,9 +40,9 @@ export default function Navbar() {
                 <MainDate>Today is {format(today, "EEEE, LLLL do")}.</MainDate>
               </div>
               <div className="col-md-2">
-                {localStorage.getItem("username") !== null
+                {/* {localStorage.getItem("username") !== null
                   ? loggedInNav()
-                  : loggedOutNav()}
+                  : loggedOutNav()} */}
               </div>
             </div>
           </div>

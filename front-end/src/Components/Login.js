@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { useHistory } from "react-router-dom";
-import axios from "axios";
 
 const Login = () => {
   const [user, setUser] = useState({

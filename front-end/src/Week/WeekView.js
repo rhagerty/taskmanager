@@ -323,6 +323,7 @@ const WeekContainer = styled.div`
     font-weight: 500;
     text-decoration: underline 3px solid rgb(187, 222, 215);
   }
+  font-family: "Montserrat", sans-serif;
 `;
 
 const DateContainer = styled.div`

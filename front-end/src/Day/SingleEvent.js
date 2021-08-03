@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
-import { useHistory, useParams } from "react-router";
+import React from "react";
 import styled from "styled-components";
-import { COLORS, dayColors } from "../Constants";
+import { dayColors } from "../Constants";
 import { GrLocation } from "react-icons/gr";
 
 import DeleteEventDialog from "../Components/DeleteEventDialog";
@@ -72,7 +71,7 @@ const SingleEvent = ({ dayEvents, refreshEvents }) => {
 const SingleEventBox = styled.div`
   display: flex;
   flex-direction: row;
-  border-bottom: 2px solid #DFECE8;
+  border-bottom: 2px solid #dfece8;
   font-weight: 300;
   padding: 15px 0;
   .nameNdesc {
