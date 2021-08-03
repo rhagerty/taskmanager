@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "# Introduction",
   "scripts": {
-    "start": "react-scripts start",
-    "client": "npm start --prefix client"
+    "start": "node backend/index.js",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install npm && run build"
   },
   "repository": {
     "type": "git",
