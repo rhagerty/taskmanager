@@ -1,4 +1,4 @@
-# FreeThought Planner - The digital planner made with neurodiversity in mind.
+# FreeThought Planner - The digital planner made with neurodivergent people in mind.
 
 # Introduction
 
@@ -23,6 +23,9 @@ The "+" button opens a form in a modal:
 - Date pickers for the start and end date / all-day option
 - Time pickers for the start and end time
 
+
+<img src="./dashboard.jpg"/>
+<img src="./month.jpg"/>
 # Project status
 
 Features in development:
