@@ -24,7 +24,7 @@ The "+" button opens a form in a modal:
 - Time pickers for the start and end time
 
 
-<img src="./dashboard.jpg"/>
+<img src="./Dashboard.jpg"/>
 <img src="./month.jpg"/>
 # Project status
 
